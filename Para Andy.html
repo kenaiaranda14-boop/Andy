@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Andy ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+
+body{
+
+height:100vh;
+overflow:hidden;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:
+radial-gradient(circle,#5b2c83,#000);
+
+color:white;
+
+}
+
+
+.galaxia{
+
+position:absolute;
+width:100%;
+height:100%;
+
+background-image:
+radial-gradient(white 1px, transparent 1px);
+
+background-size:45px 45px;
+
+animation:estrellas 20s linear infinite;
+
+}
+
+
+@keyframes estrellas{
+
+from{
+background-position:0 0;
+}
+
+to{
+background-position:500px 500px;
+}
+
+}
+
+
+.contenedor{
+
+z-index:2;
+
+text-align:center;
+
+width:90%;
+
+max-width:600px;
+
+}
+
+
+h1{
+
+font-size:clamp(30px,6vw,55px);
+
+margin-bottom:30px;
+
+}
+
+
+p{
+
+font-size:22px;
+
+}
+
+
+button{
+
+padding:15px 40px;
+
+border:none;
+
+border-radius:40px;
+
+font-size:25px;
+
+margin:20px;
+
+cursor:pointer;
+
+}
+
+
+.si{
+
+background:#ff4f91;
+
+color:white;
+
+}
+
+
+.no{
+
+background:white;
+
+position:absolute;
+
+}
+
+
+
+.pantalla{
+
+display:none;
+
+}
+
+
+
+.flor{
+
+font-size:70px;
+
+animation:aparecer 2s infinite alternate;
+
+}
+
+
+@keyframes aparecer{
+
+from{
+transform:scale(.8);
+}
+
+to{
+transform:scale(1.2);
+}
+
+}
+
+
+.corazon{
+
+position:absolute;
+
+font-size:30px;
+
+animation:subir 5s linear infinite;
+
+}
+
+
+@keyframes subir{
+
+from{
+
+transform:translateY(100vh);
+
+}
+
+to{
+
+transform:translateY(-100vh);
+
+}
+
+}
+
+
+a{
+
+color:#ffb6ff;
+
+font-size:25px;
+
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="galaxia"></div>
+
+
+<div class="contenedor">
+
+
+<!-- PRIMERA PANTALLA -->
+
+<div id="inicio">
+
+
+<h1>
+Hola Andy ❤️
+</h1>
+
+<p>
+Espero estés bien...
+<br><br>
+¿Estás lista?
+</p>
+
+
+<button class="si" onclick="pregunta()">
+Sí ✨
+</button>
+
+
+</div>
+
+
+
+<!-- SEGUNDA PANTALLA -->
+
+
+<div id="pregunta" class="pantalla">
+
+
+<h1>
+He intentado hacer esto por tiempo...
+</h1>
+
+
+<p>
+pero no sabía cómo.
+<br><br>
+
+Quieres ir a comer conmigo? ❤️
+
+</p>
+
+
+<button class="si" onclick="aceptar()">
+Sí ❤️
+</button>
+
+
+<button class="no" id="no">
+No
+</button>
+
+
+</div>
+
+
+
+
+<!-- FLORES -->
+
+
+<div id="flores" class="pantalla">
+
+
+<h1>
+🌸 Para ti 🌸
+</h1>
+
+
+<div class="flor">
+
+🌷🌹🌸🌺
+
+</div>
+
+
+<button class="si" onclick="siguiente()">
+
+Siguiente
+
+</button>
+
+
+</div>
+
+
+
+
+<!-- FINAL -->
+
+
+<div id="final" class="pantalla">
+
+
+<h1>
+
+Soñe contigo antes de conocerte,
+<br>
+y cuando por fin te encontré,
+<br>
+fue como si te hubiera conocido toda la vida.
+<br><br>
+esta cancion me recuerda a ti ✨
+</h1>
+
+
+<p>
+
+Espero tu mensaje.
+
+</p>
+
+
+<br>
+
+
+<a href="https://open.spotify.com/intl-es/track/0T5iIrXA4p5GsubkhuBIKV?si=1bf7caf9256f4eba" target="_blank">
+
+Escuchar canción 🎧
+
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<script>
+
+
+function pregunta(){
+
+
+document.getElementById("inicio").style.display="none";
+
+document.getElementById("pregunta").style.display="block";
+
+
+}
+
+
+
+let no=document.getElementById("no");
+
+
+no.addEventListener("mouseover",()=>{
+
+
+no.style.left=Math.random()*80+"%";
+
+no.style.top=Math.random()*80+"%";
+
+
+});
+
+
+no.addEventListener("touchstart",()=>{
+
+
+no.style.left=Math.random()*80+"%";
+
+no.style.top=Math.random()*80+"%";
+
+
+});
+
+
+
+
+function aceptar(){
+
+
+document.getElementById("pregunta").style.display="none";
+
+
+document.getElementById("flores").style.display="block";
+
+
+
+for(let i=0;i<15;i++){
+
+
+let c=document.createElement("div");
+
+c.className="corazon";
+
+c.innerHTML="❤️";
+
+c.style.left=Math.random()*100+"%";
+
+document.body.appendChild(c);
+
+
+}
+
+
+}
+
+
+
+
+function siguiente(){
+
+
+document.getElementById("flores").style.display="none";
+
+
+document.getElementById("final").style.display="block";
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
